@@ -1,12 +1,20 @@
 <?php
-require_once "./foods.php";
-require_once "./categories.php";
+require_once __DIR__ . "./foods.php";
+require_once __DIR__ . "./categories.php";
 
-$prodotto1 = new foods("carne",20,10,"delizziosa");
-$animal = new categories("");
+$cane = new categories ("cane");
+$gatto = new categories ("gatto");
 
-var_dump($prodotto1);
-var_dump($animal);
+$prodotto1 = new foods("CIBO",20,10,"carne",$cane);
+
+
+$prodotti = [
+    $prodotto1,
+    new foods("CIBO",10,5,"snack",$gatto),
+    new foods("CIBO",5,15,"snack",$cane)
+];
+
+var_dump($prodotti);
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +26,14 @@ var_dump($animal);
     <title>Document</title>
 </head>
 <body>
-    
+    <?php foreach ($prodotti as $prodotto) : ?>
+        <h5><?php echo $prodotto->type ?></h5>
+        <ul>
+          <li><img src="<?php echo $prodotto->categories->getimg() ?>" alt=""></li>
+          <li><strong>peso:</strong> <?php echo $prodotto->weight ?>Kg</li>
+          <li><strong>Prezzo:</strong> <?php echo $prodotto->price ?>€</li>
+          <li><strong>Descrizione:</strong> <?php echo $prodotto->description ?></li>
+        </ul>
+    <?php endforeach ?>
 </body>
 </html>
