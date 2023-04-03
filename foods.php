@@ -2,8 +2,12 @@
 
 require_once __DIR__ . "/products.php";
 require_once __DIR__ . "/categories.php";
+require_once __DIR__ . "/deals.php";
+
 
 class foods extends products{
+    use deals;
+
     public $type;
     public $weight;
 

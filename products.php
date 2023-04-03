@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/categories.php";
 
+
 class products{
     public $price;
     public $description;
@@ -10,10 +11,7 @@ class products{
         $this->price = $_price;
         $this->description = $_description;
         $this->categories = $_categories;
-
     }
-
-
 }
 
 
